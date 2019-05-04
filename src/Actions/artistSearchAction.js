@@ -21,15 +21,22 @@ const artistTracks = allTracks => {
   const tracks = tracksFormater(allTracks);
   return { type: types.ARTIST_TRACKS, payload: { tracks } };
 };
+const artistAlbums = allAlbums => {
+  const albums = tracksFormater(allAlbums);
+  return { type: types.ARTIST_ALBUMS, payload: { albums } };
+};
 export const getArtistDetails = name => async dispatch => {
   try {
     const infoData = (await axios.get(url.getInfo(name))).data;
-    dispatch(navigationButtonSelect('about'));
     dispatch(artistName(infoData.artist.name));
     dispatch(artistImage(infoData.artist.image[2]['#text']));
     dispatch(aboutArtist(infoData.artist.bio.content));
 
     const trackData = (await axios.get(url.getTracks(name))).data;
     dispatch(artistTracks(trackData.toptracks.track));
+
+    const albumData = (await axios.get(url.getAlbums(name))).data;
+    console.log(albumData);
+    console.log(tracksFormater(albumData.topalbums.album));
   } catch (error) {}
 };

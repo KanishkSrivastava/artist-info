@@ -2,14 +2,14 @@ import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
 
-const About = ({ artistInfo }) => {
+const About = ({ artistName, about }) => {
   return (
     <div>
       <Typography variant='h6' gutterBottom>
-        {artistInfo.artistName}
+        {artistName}
       </Typography>
       <Typography variant='body2' gutterBottom align='justify'>
-        {artistInfo.about}
+        {about}
       </Typography>
     </div>
   );
