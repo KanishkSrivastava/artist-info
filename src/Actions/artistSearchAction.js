@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as types from '../types';
 import * as url from '../utils/urlGenerator';
 
-import tracksFormater from '../utils/tracksFormater';
+import responseFormater from '../utils/tracksAndAlbumResponseFormater';
 
 export const navigationButtonSelect = selectedNavigationButton => {
   return { type: types.NAVIGATION_BUTTON_SELECT, payload: { selectedNavigationButton } };
@@ -18,11 +18,11 @@ const aboutArtist = about => {
   return { type: types.ARTIST_ABOUT, payload: { about } };
 };
 const artistTracks = allTracks => {
-  const tracks = tracksFormater(allTracks);
+  const tracks = responseFormater(allTracks);
   return { type: types.ARTIST_TRACKS, payload: { tracks } };
 };
 const artistAlbums = allAlbums => {
-  const albums = tracksFormater(allAlbums);
+  const albums = responseFormater(allAlbums);
   return { type: types.ARTIST_ALBUMS, payload: { albums } };
 };
 export const getArtistDetails = name => async dispatch => {
@@ -36,7 +36,8 @@ export const getArtistDetails = name => async dispatch => {
     dispatch(artistTracks(trackData.toptracks.track));
 
     const albumData = (await axios.get(url.getAlbums(name))).data;
-    console.log(albumData);
-    console.log(tracksFormater(albumData.topalbums.album));
+    dispatch(artistAlbums(albumData.topalbums.album));
+
+    const similarArtistData = (await axios.get(url.getSimilar(name))).data;
   } catch (error) {}
 };

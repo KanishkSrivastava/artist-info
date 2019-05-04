@@ -1,12 +1,14 @@
 import React from 'react';
 
-import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
-const Albums = () => (
-  <div>
-    <Typography variant='h1' component='h2' gutterBottom>
-      Albums
-    </Typography>
-  </div>
+import DisplayCard from '../utils/DisplayCard';
+
+const Albums = ({ albums }) => (
+  <Grid container>
+    {albums.map(album => (
+      <DisplayCard key={album.name} content={album} />
+    ))}
+  </Grid>
 );
 export default Albums;

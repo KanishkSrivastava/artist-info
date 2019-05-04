@@ -8,6 +8,7 @@ import History from './History';
 import NavigationButtons from './NavigationButtons';
 import About from './About';
 import Tracks from './Tracks';
+import Albums from './Albums';
 
 const HomePage = ({ artistInfo }) => (
   <Grid container>
@@ -25,8 +26,8 @@ const HomePage = ({ artistInfo }) => (
         </Grid>
         <Grid item xs={12} sm={8}>
           {artistInfo.selectedNavigationButton === 'about' ? <About artistName={artistInfo.artistName} about={artistInfo.about} /> : null}
-          {console.log(artistInfo.tracks)}
           {artistInfo.selectedNavigationButton === 'tracks' ? <Tracks tracks={artistInfo.tracks} /> : null}
+          {artistInfo.selectedNavigationButton === 'albums' ? <Albums albums={artistInfo.albums} /> : null}
         </Grid>
         <Grid item xs={12} sm={1} style={{ paddingLeft: 10 }}>
           {/* <img src={artistInfo.image} alt='artist' /> */}

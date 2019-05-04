@@ -1,4 +1,4 @@
-const tracksFormatter = tracks => {
+const responseFormatter = tracks => {
   let tracksArray = [];
   const size = tracks.length < 20 ? tracks.length : 20;
   for (let index = 0; index < size; index++) {
@@ -13,4 +13,4 @@ const tracksFormatter = tracks => {
   }
   return tracksArray;
 };
-export default tracksFormatter;
+export default responseFormatter;
