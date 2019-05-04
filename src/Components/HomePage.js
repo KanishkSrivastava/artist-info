@@ -10,7 +10,6 @@ import About from './About';
 
 const HomePage = ({ artistInfo }) => (
   <Grid container>
-    {console.log(artistInfo)}
     <Grid container style={{ marginBottom: 20 }}>
       <Grid item xs={2} />
       <Grid item xs={5}>
