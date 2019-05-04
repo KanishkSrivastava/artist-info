@@ -1,31 +1,43 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Grid from '@material-ui/core/Grid';
 
 import Input from './Input';
 import History from './History';
 import NavigationButtons from './NavigationButtons';
+import About from './About';
 
-const HomePage = () => (
+const HomePage = ({ artistInfo }) => (
   <Grid container>
-    <Grid container>
-      <Grid item xs={3} />
+    {console.log(artistInfo)}
+    <Grid container style={{ marginBottom: 20 }}>
+      <Grid item xs={2} />
       <Grid item xs={5}>
         <Input />
       </Grid>
-      <Grid item xs={4} />
+      <Grid item xs={6} />
     </Grid>
     <Grid item xs={12} sm={8}>
       <Grid container>
-        <Grid item xs={2} sm={4}>
-          <NavigationButtons selected='similar artist' />
+        <Grid item xs={12} sm={3} style={{ paddingRight: 15 }}>
+          <NavigationButtons selected={artistInfo.selectedNavigationButton} />
         </Grid>
-        <Grid item xs={10} sm={8} />
+        <Grid item xs={12} sm={8}>
+          <About artistInfo={artistInfo} />
+        </Grid>
+        <Grid item xs={12} sm={1} style={{ paddingLeft: 10 }}>
+          {/* <img src={artistInfo.image} alt='artist' /> */}
+        </Grid>
       </Grid>
     </Grid>
-    <Grid item xs={12} sm={4}>
+    <Grid item sm={1} />
+    <Grid item xs={12} sm={3}>
       <History />
     </Grid>
   </Grid>
 );
-export default HomePage;
+
+const mapStateToProps = ({ artistInfo }) => ({ artistInfo });
+
+export default connect(mapStateToProps)(HomePage);
