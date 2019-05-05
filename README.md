@@ -29,8 +29,8 @@ Web application will run on port 3000
 
 **Component Diagram**
 
-![Actions Diagram](https://s3.ap-south-1.amazonaws.com/artist-info/Component+Diagram.png 'Logo Title Text 1')
+![Component Diagram](https://s3.ap-south-1.amazonaws.com/artist-info/Component+Diagram.png 'Component Diagram')
 
 **Action Diagram**
 
-![Actions Diagram](https://s3.ap-south-1.amazonaws.com/artist-info/Actions+Diagram.png 'Logo Title Text 1')
+![Actions Diagram](https://s3.ap-south-1.amazonaws.com/artist-info/Actions+Diagram.png 'Action Diagram')
