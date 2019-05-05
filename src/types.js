@@ -7,3 +7,5 @@ export const ARTIST_TRACKS = 'ARTIST_TRACKS';
 export const ARTIST_ALBUMS = 'ARTIST_ALBUMS';
 export const SIMILAR_ARTIST = 'SIMILAR_ARTIST';
 export const HISTORY = 'HISTORY';
+export const LOADING = 'LOADING';
+export const DONE_LOADING = 'DONE_LOADING';

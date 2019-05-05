@@ -14,7 +14,8 @@ const artistName = artistName => {
 const artistImage = image => {
   return { type: types.ARTIST_IMAGE, payload: { image } };
 };
-const aboutArtist = about => {
+const aboutArtist = aboutArtist => {
+  const about = aboutArtist.split('<a')[0];
   return { type: types.ARTIST_ABOUT, payload: { about } };
 };
 const artistTracks = allTracks => {
@@ -29,8 +30,13 @@ const similarArtists = artists => {
   const similarArtists = responseFormater(artists);
   return { type: types.SIMILAR_ARTIST, payload: { similarArtists } };
 };
+const loading = () => {
+  return { type: types.LOADING };
+};
+const doneLoading = () => {
+  return { type: types.DONE_LOADING };
+};
 export const history = (newArtist = null) => async dispatch => {
-  console.log('yo');
   if (newArtist !== null) {
     if (localStorage.getItem('history') === null) {
       let history = [newArtist.toLowerCase()];
@@ -52,6 +58,7 @@ export const history = (newArtist = null) => async dispatch => {
 };
 
 export const getArtistDetails = name => async dispatch => {
+  dispatch(loading());
   try {
     const infoData = (await axios.get(url.getInfo(name))).data;
     if (infoData.error) throw Error('Artist Not Found');
@@ -71,6 +78,7 @@ export const getArtistDetails = name => async dispatch => {
 
     dispatch(await history(name));
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
+  dispatch(doneLoading());
 };

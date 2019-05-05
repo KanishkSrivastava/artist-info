@@ -21,13 +21,14 @@ const History = ({ artists, getArtistDetails, navigationButtonSelect }) => (
           await getArtistDetails(artist);
           navigationButtonSelect('about');
         }}
-        xs={12}
-        sm={6}
+        xs={6}
         style={{ cursor: 'pointer' }}
       >
         <Card style={{ margin: 10 }}>
           <CardContent>
-            <Typography variant='subtitle1'>{artist}</Typography>
+            <Typography color='primary' variant='subtitle1'>
+              {artist}
+            </Typography>
           </CardContent>
         </Card>
       </Grid>

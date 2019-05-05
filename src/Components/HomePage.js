@@ -10,15 +10,18 @@ import About from './About';
 import Tracks from './Tracks';
 import Albums from './Albums';
 import SimilarArtist from './SimilarArtist';
+import Loading from '../Loading';
 
 const HomePage = ({ artistInfo }) => (
   <Grid container>
-    <Grid container style={{ marginBottom: 20 }}>
+    <Grid container style={{ marginBottom: 20 }} container direction='row' justify='center' alignItems='center'>
       <Grid item xs={2} />
       <Grid item xs={5}>
         <Input />
       </Grid>
-      <Grid item xs={6} />
+      <Grid item xs={5}>
+        <Loading />
+      </Grid>
     </Grid>
     <Grid item xs={12} sm={8}>
       {artistInfo.about !== null ? (

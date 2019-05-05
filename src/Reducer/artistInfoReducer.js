@@ -9,7 +9,8 @@ const initialState = {
   tracks: [],
   albums: [],
   similarArtists: [],
-  history: []
+  history: [],
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -38,6 +39,10 @@ export default (state = initialState, action) => {
     case types.HISTORY:
       const { history } = action.payload;
       return { ...state, history };
+    case types.LOADING:
+      return { ...state, loading: true };
+    case types.DONE_LOADING:
+      return { ...state, loading: false };
     default:
       return state;
   }
