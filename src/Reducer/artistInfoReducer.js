@@ -1,6 +1,16 @@
 import * as types from '../types';
 
-const initialState = { search: '', selectedNavigationButton: 'about', artistName: '', image: null, about: null, tracks: [], albums: [] };
+const initialState = {
+  search: '',
+  selectedNavigationButton: 'about',
+  artistName: '',
+  image: null,
+  about: null,
+  tracks: [],
+  albums: [],
+  similarArtists: [],
+  history: []
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -22,6 +32,12 @@ export default (state = initialState, action) => {
     case types.ARTIST_ALBUMS:
       const { albums } = action.payload;
       return { ...state, albums };
+    case types.SIMILAR_ARTIST:
+      const { similarArtists } = action.payload;
+      return { ...state, similarArtists };
+    case types.HISTORY:
+      const { history } = action.payload;
+      return { ...state, history };
     default:
       return state;
   }

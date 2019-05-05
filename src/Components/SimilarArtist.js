@@ -8,17 +8,14 @@ import CardContent from '@material-ui/core/CardContent';
 
 import { getArtistDetails, navigationButtonSelect } from '../Actions/artistSearchAction';
 
-const History = ({ artists, getArtistDetails, navigationButtonSelect }) => (
+const SimilarArtist = ({ artists, getArtistDetails, navigationButtonSelect }) => (
   <Grid container>
-    <Grid item xs={12}>
-      <Typography variant='h5'> Recent Search</Typography>
-    </Grid>
     {artists.map(artist => (
       <Grid
         item
-        key={artist}
+        key={artist.name}
         onClick={async () => {
-          await getArtistDetails(artist);
+          await getArtistDetails(artist.name);
           navigationButtonSelect('about');
         }}
         xs={12}
@@ -26,9 +23,13 @@ const History = ({ artists, getArtistDetails, navigationButtonSelect }) => (
         style={{ cursor: 'pointer' }}
       >
         <Card style={{ margin: 10 }}>
-          <CardContent>
-            <Typography variant='subtitle1'>{artist}</Typography>
-          </CardContent>
+          <Grid container direction='row' alignItems='center'>
+            <Grid item xs={8}>
+              <CardContent>
+                <Typography variant='h6'>{artist.name}</Typography>
+              </CardContent>
+            </Grid>
+          </Grid>
         </Card>
       </Grid>
     ))}
@@ -39,4 +40,4 @@ const mapDispatchToProps = { getArtistDetails, navigationButtonSelect };
 export default connect(
   null,
   mapDispatchToProps
-)(History);
+)(SimilarArtist);

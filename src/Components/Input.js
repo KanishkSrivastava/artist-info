@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-import { getArtistDetails } from '../Actions/artistSearchAction';
+import { getArtistDetails, history } from '../Actions/artistSearchAction';
 
 class Input extends Component {
   constructor(props) {
     super(props);
     this.state = { artistName: '' };
+    this.props.history();
   }
   render() {
     return (
@@ -31,7 +32,7 @@ class Input extends Component {
   }
 }
 
-const mapDispatchToProps = { getArtistDetails };
+const mapDispatchToProps = { getArtistDetails, history };
 export default connect(
   null,
   mapDispatchToProps

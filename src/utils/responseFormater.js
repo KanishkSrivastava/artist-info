@@ -5,8 +5,8 @@ const responseFormatter = tracks => {
     let trackElement = {};
     const element = tracks[index];
     trackElement.name = element.name;
-    trackElement.playcount = element.playcount;
-    trackElement.listeners = element.listeners;
+    trackElement.playcount = element.playcount ? element.playcount : null;
+    trackElement.listeners = element.listeners ? element.listeners : null;
     trackElement.url = element.url;
     trackElement.image = element.image[3]['#text'];
     tracksArray.push(trackElement);
