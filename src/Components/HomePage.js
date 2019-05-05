@@ -15,11 +15,11 @@ import Loading from '../Loading';
 const HomePage = ({ artistInfo }) => (
   <Grid container>
     <Grid container style={{ marginBottom: 20 }} direction='row' justify='center' alignItems='center'>
-      <Grid item xs={2} />
-      <Grid item xs={5}>
+      <Grid item sm={2} />
+      <Grid item xs={8} sm={5}>
         <Input />
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={4} sm={5}>
         <Loading />
       </Grid>
     </Grid>
