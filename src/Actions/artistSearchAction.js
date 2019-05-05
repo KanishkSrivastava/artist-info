@@ -53,7 +53,6 @@ export const history = (newArtist = null) => async dispatch => {
   }
   let history = await localStorage.getItem('history');
   history = JSON.parse(history);
-  console.log(history);
   dispatch({ type: types.HISTORY, payload: { history } });
 };
 
