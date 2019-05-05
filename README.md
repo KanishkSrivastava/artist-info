@@ -1,6 +1,6 @@
 # Artist-Info
 
-### Assingment given by truecaller.
+### Assignment given by truecaller.
 
 **_A web app which shows information about an artist, suggest similar artists and also saves search history._**
 
