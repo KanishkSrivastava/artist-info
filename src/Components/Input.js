@@ -19,6 +19,9 @@ class Input extends Component {
           required
           label='Artist Name'
           value={this.state.inputField}
+          onKeyPress={e => {
+            if (e.key === 'Enter') this.props.getArtistDetails(this.state.artistName);
+          }}
           onChange={artistName => this.setState({ artistName: artistName.target.value })}
           variant='outlined'
           fullWidth
